@@ -93,14 +93,12 @@ console.log(createString("strive", -1))
 Create a function to display the city name if the string begins with "Los" or "New" otherwise return blank.
 */
 
-function checkCityName(str) {
-    if (str.length >= 3 && ((str.substring(0, 3) == 'Los')
-        || (str.substring(0, 3) == 'New')))
-        {
-        return str
-        } else {
-    return ''
-  }
+function checkCityName(cityName) {
+    if (cityName.startsWith("New") || cityName.startsWith("Los")) {
+        return cityName
+    } else {
+        return ""
+    }
 }
 console.log(checkCityName("Los Angeles"))
 console.log(checkCityName("New York"))
@@ -122,37 +120,106 @@ console.log(sumOfThree(5, 10, 15))
 Create a function to test whether an array of integers of length 2 contains 1 or a 3. 
 */
 
+function containsNumbers(array) {
+    if (array.includes(1) || array.includes(3)) {
+        return true
+    } else {
+        return false
+    }
+}
+console.log(containsNumbers([1, 5]))
+
 /*
 
 10)
 
 Create a function to test whether an array of integers of length 2 does not contain 1 or a 3 */
 
+function containsNo(array) {
+    if (array.includes(1) || array.includes(3)) {
+        return false
+    } else {
+        return true
+    }
+}
+console.log(containsNo([1, 5]))
+
 /* 11)
 
 Create a function to find the longest string from a given array of strings. */
 
+let cities = ["Los Angeles", "New York", "Paris"]
 
+function findLongest(cities) {
+    let longest = cities[0]
+    for (let i = 1; i < cities.length; i++) {
+        if (cities[i].length > longest.length) {
+            longest = cities[i]
+        }
+    }
+    return longest
+}
+console.log(findLongest(cities))
 
 /* 12) Create a function to find the types of a given angle.
 
 Types of angles:
     Acute angle: An angle between 0 and 90 degrees.
     Right angle: An 90 degree angle.
-    btuse angle: An angle between 90 and 180 degrees.
+    Obtuse angle: An angle between 90 and 180 degrees.
     Straight angle: A 180 degree angle. */
+
+    function findAngle(angle) {
+        if(angle < 90) {
+          return "Acute angle"
+        }
+        if(angle === 90) {
+          return "Right angle"
+        }
+        if(angle < 180) {
+          return "Obtuse angle"
+        }
+        if(angle === 180) {
+        return "Straight angle"
+      }
+    }
+    console.log(findAngle(60))
+    console.log(findAngle(90))
+    console.log(findAngle(170))
+    console.log(findAngle(180))
 
 /* 13)
 
 Create a function to find the index of the greatest element of a given array of integers */
 
+  function greatestElement(array) {
+    largestNumber = Math.max(...array)
+    return array.indexOf(largestNumber)
+}
+console.log(greatestElement([1, 2, 3, 4]))
+
 /* 14)
 
 Create a function to get the largest even number from an array of integers. */
 
+
 /* 16)
 
 Create a function to check from two given integers, whether one is positive and another one is negative. */
+
+function checkIntegers(d, e)
+{
+  if ((d < 0 && e > 0) || d > 0 && e < 0) 
+  {
+    return true
+  }
+  else 
+  {
+    return false
+  }
+}
+console.log(checkIntegers(5, -1))
+console.log(checkIntegers(1, 5))
 
 /* 17)
 
@@ -161,6 +228,8 @@ Create a function to create new string with first 3 characters are in lower case
 /* 18)
 
 Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80. */
+
+
 
 /* 19)
 
@@ -181,3 +250,8 @@ this would be "34". */
 /* 20)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
 */
+
+var msg = "National Broadcast Channel"
+var acronym = msg.match(/\b(\w)/g).join('')
+
+console.log(acronym)
