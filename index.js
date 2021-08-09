@@ -79,13 +79,13 @@ Create a function to create a new string of specified copies (positive number) o
 */
 
 function createString (str, n) {
-    if (n < 0)
-    return false
+    if (n === 1)
+    return str
     else
   return str.repeat(n)
  }
+console.log(createString("strive", 1))
 console.log(createString("strive", 3))
-console.log(createString("strive", -1))
 
 /*
 
@@ -192,7 +192,7 @@ Types of angles:
 
 Create a function to find the index of the greatest element of a given array of integers */
 
-  function greatestElement(array) {
+function greatestElement(array) {
     largestNumber = Math.max(...array)
     return array.indexOf(largestNumber)
 }
@@ -202,22 +202,30 @@ console.log(greatestElement([1, 2, 3, 4]))
 
 Create a function to get the largest even number from an array of integers. */
 
+function largestEven(array) {
+    array.sort((x, y) => y - x)
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] % 2 == 0)
+        return array[i]
+      }
+    }
+  console.log(largestEven([5, 10, 20]))
+
 
 /* 16)
 
 Create a function to check from two given integers, whether one is positive and another one is negative. */
 
-function checkIntegers(d, e)
-{
-  if ((d < 0 && e > 0) || d > 0 && e < 0) 
-  {
-    return true
+function checkIntegers(d, e) {
+    if ((d < 0 && e > 0) || d > 0 && e < 0) 
+    {
+      return true
+    }
+    else 
+    {
+      return false
+    }
   }
-  else 
-  {
-    return false
-  }
-}
 console.log(checkIntegers(5, -1))
 console.log(checkIntegers(1, 5))
 
@@ -228,8 +236,6 @@ Create a function to create new string with first 3 characters are in lower case
 /* 18)
 
 Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80. */
-
-
 
 /* 19)
 
